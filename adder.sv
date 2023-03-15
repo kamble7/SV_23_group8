@@ -1,7 +1,8 @@
 module adder (A,B, S);
-input [31:0] A, B;
-output [31:0] S;
+input logic [31:0] A, B;
+output logic [31:0] S;
+output CO;
 
-assign S = A+B;
+assign {CO,S} = A + B;
 
 endmodule : adder
