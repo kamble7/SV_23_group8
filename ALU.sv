@@ -1,9 +1,10 @@
 module ALU (val1, val2, zero, aluout);
-input [31:0] val1, val2;
-output zero;
-output [31:0] aluout;
+input logic [31:0] val1, val2;
+output logic zero;
+output logic [31:0] aluout;
 
 assign zero = (aluout=='0);
+
 always_comb
 begin
 	case (EXE_CMD)
