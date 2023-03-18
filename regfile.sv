@@ -23,4 +23,4 @@ if (writeEn)
 regMem[dest] <= writeVal;
 end
 
-endmodule : RegFile // End of Regfile module
+endmodule : RegFile // End of module
