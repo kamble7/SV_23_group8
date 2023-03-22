@@ -4,10 +4,10 @@ module EXEMEMpipelinereg (clk, rstn, WB_EN_IN, MEM_R_EN_IN, MEM_W_EN_IN, PCIn, A
 input logic clk, rstn;
 input logic WB_EN_IN, MEM_R_EN_IN, MEM_W_EN_IN;
 input logic [REG_FILE_ADDR_LEN-1:0] destIn;
-input logic [N-1:0] PCIn, ALUResIn, STValIn;
+input logic [WORD_LEN-1:0] PCIn, ALUResIn, STValIn;
 output logic WB_EN, MEM_R_EN, MEM_W_EN;
 output logic [REG_FILE_ADDR_LEN-1:0] dest;
-output logic [N-1:0] PC, ALURes, STVal;
+output logic [WORD_LEN-1:0] PC, ALURes, STVal;
 
 always_ff @(posedge clk)
 begin

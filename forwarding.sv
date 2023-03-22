@@ -13,21 +13,21 @@ begin
 
 //Generating forwarding control signals for store value
 if (WB_EN_MEM && (ST_src_EXE == dest_MEM))
-ST_val_sel <= 2'b01;
+ST_val_sel = 2'b01;
 else if (WB_EN_WB && (ST_src_EXE == dest_WB))
-ST_val_sel <= 2'b10;
+ST_val_sel = 2'b10;
 
 //Generating forwarding control signals for ALU val1
 if (WB_EN_MEM && (src1_EXE == dest_MEM))
-val1_sel <= 2'b01;
+val1_sel = 2'b01;
 else if (WB_EN_WB && (src1_EXE == dest_WB))
-val1_sel <= 2'b10;
+val1_sel = 2'b10;
 
 //Generating forwarding control signals for ALU val2
 if (WB_EN_MEM && (src2_EXE == dest_MEM))
-val2_sel <= 2'b01;
-else
-val2_sel <= 2'b10;
+val2_sel = 2'b01;
+else if ((WB_EN_WB) && (src2_EXE == dest_WB))
+val2_sel = 2'b10;
 
 end
 

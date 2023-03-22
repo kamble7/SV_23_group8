@@ -2,11 +2,11 @@ import defines::*;
 module DataMem (clk, rstn, readEn, writeEn, address, datain, dataout);
 
 input logic clk, rstn, readEn, writeEn;
-input logic [N-1:0] address, datain;
-output logic [N-1:0] dataout;
+input logic [WORD_LEN-1:0] address, datain;
+output logic [WORD_LEN-1:0] dataout;
 
 logic [MEM_CELL_SIZE-1:0] datamem [0:DATA_MEM_SIZE-1];
-logic [N-1:0] base_addr;
+logic [WORD_LEN-1:0] base_addr;
 
 always_ff @(posedge clk)
 begin

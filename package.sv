@@ -1,7 +1,7 @@
 package defines;
 
 // Wire widths
-parameter N = 32;
+parameter WORD_LEN = 32;
 parameter LENGTH = 32; //Used in mux
 parameter REG_FILE_ADDR_LEN = 5;
 parameter FORWARD_SEL_LEN = 2;

@@ -2,8 +2,8 @@ import defines::*;
 module IFIDpipelinereg (clk, rstn, flush, freeze, pcIn, instructionIn, pcOut, instructionOut);
 
 input logic clk, rstn, flush, freeze;
-input logic [N-1:0] pcIn, instructionIn;
-output logic [N-1:0] pcOut, instructionOut;
+input logic [WORD_LEN-1:0] pcIn, instructionIn;
+output logic [WORD_LEN-1:0] pcOut, instructionOut;
 
 always_ff @(posedge clk)
 begin

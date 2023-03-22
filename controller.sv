@@ -12,8 +12,8 @@ always_comb
 begin
     if (!hazard_detected)
     begin
-    {branchEn, EXE_CMD, Branch_command, Is_Imm, ST_or_BNE, WB_EN, MEM_R_EN, MEM_W_EN} <= '0;
-        case (opCode)
+    {branchEn, EXE_CMD, Branch_command, Is_Imm, ST_or_BNE, WB_EN, MEM_R_EN, MEM_W_EN} = '0;
+      case (opCode)
 	OP_ADD	: begin
 		  EXE_CMD = EXE_ADD;
 		  WB_EN = 1;
@@ -99,7 +99,7 @@ begin
 	endcase
     end
     else
-    {EXE_CMD, WB_EN, MEM_W_EN} <= '0;
+    {EXE_CMD, WB_EN, MEM_W_EN} = '0;
 end
 
 

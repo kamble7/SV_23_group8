@@ -2,14 +2,14 @@ import defines::*;
 
 module MIPS (input clock, input rstn, input forward_EN);
 
-logic [N-1:0] PC_IF, PC_ID, PC_EXE, PC_MEM;
-logic [N-1:0] inst_IF, inst_ID;
-logic [N-1:0] reg1_ID, reg2_ID, ST_value_EXE, ST_value_EXE2MEM, ST_value_MEM;
-logic [N-1:0] val1_ID, val1_EXE;
-logic [N-1:0] val2_ID, val2_EXE;
-logic [N-1:0] ALURes_EXE, ALURes_MEM, ALURes_WB;
-logic [N-1:0] dataMem_out_MEM, dataMem_out_WB;
-logic [N-1:0] WB_result;
+logic [WORD_LEN-1:0] PC_IF, PC_ID, PC_EXE, PC_MEM;
+logic [WORD_LEN-1:0] inst_IF, inst_ID;
+logic [WORD_LEN-1:0] reg1_ID, reg2_ID, ST_value_EXE, ST_value_EXE2MEM, ST_value_MEM;
+logic [WORD_LEN-1:0] val1_ID, val1_EXE;
+logic [WORD_LEN-1:0] val2_ID, val2_EXE;
+logic [WORD_LEN-1:0] ALURes_EXE, ALURes_MEM, ALURes_WB;
+logic [WORD_LEN-1:0] dataMem_out_MEM, dataMem_out_WB;
+logic [WORD_LEN-1:0] WB_result;
 logic [REG_FILE_ADDR_LEN-1:0] dest_EXE, dest_MEM, dest_WB; // dest_ID = instruction[25:21] thus nothing declared
 logic [REG_FILE_ADDR_LEN-1:0] src1_ID, src2_regFile_ID, src2_forw_ID, src2_forw_EXE, src1_forw_EXE;
 execmd_t EXE_CMD_ID, EXE_CMD_EXE;
@@ -162,7 +162,7 @@ IDEXEpipelinereg ID2EXEReg (
 	.clk(clock),
 	.rstn(rstn),
 	// INPUTS
-	.destIn(inst_ID[15:11]),
+	.destIn(inst_ID[25:21]),
 	.src1_in(src1_ID),
 	.src2_in(src2_forw_ID),
 	.reg2In(reg2_ID),

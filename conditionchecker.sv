@@ -1,7 +1,7 @@
 import defines::*;
 module ConditionChecker (reg1, reg2, cuBranchComm, brCond);
 
-input logic [N-1:0] reg1, reg2;
+input logic [WORD_LEN-1:0] reg1, reg2;
 input brcmd_t cuBranchComm;
 output logic brCond;
 
