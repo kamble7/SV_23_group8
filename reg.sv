@@ -1,4 +1,6 @@
 import defines::*;
+
+//PC
 module register (clk, rstn, writeEn, regIn, regOut);
 
 input logic clk, rstn, writeEn;

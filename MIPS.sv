@@ -13,7 +13,7 @@ logic [N-1:0] WB_result;
 logic [REG_FILE_ADDR_LEN-1:0] dest_EXE, dest_MEM, dest_WB; // dest_ID = instruction[25:21] thus nothing declared
 logic [REG_FILE_ADDR_LEN-1:0] src1_ID, src2_regFile_ID, src2_forw_ID, src2_forw_EXE, src1_forw_EXE;
 execmd_t EXE_CMD_ID, EXE_CMD_EXE;
-logic [FORWARD_SEL_LEN:0] val1_sel, val2_sel, ST_val_sel;
+logic [FORWARD_SEL_LEN-1:0] val1_sel, val2_sel, ST_val_sel;
 brcmd_t branch_comm;
 logic Br_Taken_ID, IF_Flush, Br_Taken_EXE;
 logic MEM_R_EN_ID, MEM_R_EN_EXE, MEM_R_EN_MEM, MEM_R_EN_WB;

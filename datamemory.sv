@@ -1,4 +1,4 @@
-import defines::*
+import defines::*;
 module DataMem (clk, rstn, readEn, writeEn, address, datain, dataout);
 
 input logic clk, rstn, readEn, writeEn;
