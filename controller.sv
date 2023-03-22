@@ -1,10 +1,5 @@
-
-module Controller (opCode, branchEn, EXE_CMD, Branch_command, Is_Imm, ST_or_BNE, WB_EN, MEM_R_EN, MEM_W_EN, hazard_detected);
-
 import defines::*;
-//typedef enum {OP_ADD, OP_SUB, OP_AND, OP_OR, OP_NOR, OP_XOR, OP_SLA, OP_SLL, OP_SRA, OP_SRL,OP_ADDI, OP_SUBI, OP_LD, OP_ST, OP_BEZ, OP_BNE, OP_JMP} opcode_t;
-typedef enum {COND_JUMP, COND_BEZ, COND_BNE} brcmd_t;
-typedef enum {EXE_ADD, EXE_SUB, EXE_AND, EXE_OR, EXE_NOR, EXE_XOR, EXE_SLA, EXE_SLL, EXE_SRA, EXE_SRL, EXE_NO_OPERATION} execmd_t;
+module Controller (opCode, branchEn, EXE_CMD, Branch_command, Is_Imm, ST_or_BNE, WB_EN, MEM_R_EN, MEM_W_EN, hazard_detected);
 
 input logic hazard_detected;
 input opcode_t opCode;
@@ -12,7 +7,6 @@ output logic branchEn;
 output execmd_t EXE_CMD;
 output brcmd_t Branch_command;
 output logic Is_Imm, ST_or_BNE, WB_EN, MEM_R_EN, MEM_W_EN;
-
 
 always_comb
 begin

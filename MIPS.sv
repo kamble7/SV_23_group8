@@ -1,20 +1,19 @@
+import defines::*;
+
 module MIPS (input clock, input rstn, input forward_EN);
 
-typedef enum {COND_JUMP, COND_BEZ, COND_BNE} brcmd_t;
-typedef enum {EXE_ADD, EXE_SUB, EXE_AND, EXE_OR, EXE_NOR, EXE_XOR, EXE_SLA, EXE_SLL, EXE_SRA, EXE_SRL, EXE_NO_OPERATION} execmd_t;
-
-logic [31:0] PC_IF, PC_ID, PC_EXE, PC_MEM;
-logic [31:0] inst_IF, inst_ID;
-logic [31:0] reg1_ID, reg2_ID, ST_value_EXE, ST_value_EXE2MEM, ST_value_MEM;
-logic [31:0] val1_ID, val1_EXE;
-logic [31:0] val2_ID, val2_EXE;
-logic [31:0] ALURes_EXE, ALURes_MEM, ALURes_WB;
-logic [31:0] dataMem_out_MEM, dataMem_out_WB;
-logic [31:0] WB_result;
-logic [4:0] dest_EXE, dest_MEM, dest_WB; // dest_ID = instruction[25:21] thus nothing declared
-logic [4:0] src1_ID, src2_regFile_ID, src2_forw_ID, src2_forw_EXE, src1_forw_EXE;
+logic [N-1:0] PC_IF, PC_ID, PC_EXE, PC_MEM;
+logic [N-1:0] inst_IF, inst_ID;
+logic [N-1:0] reg1_ID, reg2_ID, ST_value_EXE, ST_value_EXE2MEM, ST_value_MEM;
+logic [N-1:0] val1_ID, val1_EXE;
+logic [N-1:0] val2_ID, val2_EXE;
+logic [N-1:0] ALURes_EXE, ALURes_MEM, ALURes_WB;
+logic [N-1:0] dataMem_out_MEM, dataMem_out_WB;
+logic [N-1:0] WB_result;
+logic [REG_FILE_ADDR_LEN-1:0] dest_EXE, dest_MEM, dest_WB; // dest_ID = instruction[25:21] thus nothing declared
+logic [REG_FILE_ADDR_LEN-1:0] src1_ID, src2_regFile_ID, src2_forw_ID, src2_forw_EXE, src1_forw_EXE;
 execmd_t EXE_CMD_ID, EXE_CMD_EXE;
-logic [1:0] val1_sel, val2_sel, ST_val_sel;
+logic [FORWARD_SEL_LEN:0] val1_sel, val2_sel, ST_val_sel;
 brcmd_t branch_comm;
 logic Br_Taken_ID, IF_Flush, Br_Taken_EXE;
 logic MEM_R_EN_ID, MEM_R_EN_EXE, MEM_R_EN_MEM, MEM_R_EN_WB;

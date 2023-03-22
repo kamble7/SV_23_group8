@@ -1,8 +1,10 @@
+import defines::*;
 module ForwardingUnit (src1_EXE, src2_EXE, ST_src_EXE, dest_MEM, dest_WB, WB_EN_MEM, WB_EN_WB, val1_sel, val2_sel, ST_val_sel);
-input logic [4:0] src1_EXE, src2_EXE, ST_src_EXE;
-input logic [4:0] dest_MEM, dest_WB;
+
+input logic [REG_FILE_ADDR_LEN-1:0] src1_EXE, src2_EXE, ST_src_EXE;
+input logic [REG_FILE_ADDR_LEN-1:0] dest_MEM, dest_WB;
 input logic WB_EN_MEM, WB_EN_WB;
-output logic [1:0] val1_sel, val2_sel, ST_val_sel;
+output logic [FORWARD_SEL_LEN-1:0] val1_sel, val2_sel, ST_val_sel;
 
 always_comb
 begin

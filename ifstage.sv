@@ -1,11 +1,12 @@
+import defines::*;
 module IFstage (clk, rstn, brTaken, brOffset, freeze, PC, instruction);
 input logic clk, rstn, brTaken, freeze;
-input [31:0] brOffset;
-output [31:0] PC, instruction;
+input [N-1:0] brOffset;
+output [N-1:0] PC, instruction;
 
-logic [31:0] adderIn1, adderOut, brOffsetTimes4;
+logic [N-1:0] adderIn1, adderOut, brOffsetTimes4;
 
-mux #(.LENGTH('d32)) adderInput (.in1(32'd4),
+mux #(.LEN(N)) adderInput (.in1(32'd4),
 				.in2(brOffsetTimes4),
 				.sel(brTaken),
 				.out(adderIn1));

@@ -1,8 +1,8 @@
+import defines::*;
 module HazardDetection (forward_EN, is_imm, ST_or_BNE, src1_ID, src2_ID, dest_EXE, WB_EN_EXE, dest_MEM, WB_EN_MEM, MEM_R_EN_EXE, branch_comm, hazarddetected);
-typedef enum {COND_JUMP, COND_BEZ, COND_BNE} brcmd_t;
 
-input logic [4:0] src1_ID, src2_ID;
-input logic [4:0] dest_EXE, dest_MEM;
+input logic [REG_FILE_ADDR_LEN-1:0] src1_ID, src2_ID;
+input logic [REG_FILE_ADDR_LEN-1:0] dest_EXE, dest_MEM;
 input brcmd_t branch_comm;
 input logic forward_EN, WB_EN_EXE, WB_EN_MEM, is_imm, ST_or_BNE, MEM_R_EN_EXE;
 output logic hazarddetected;
